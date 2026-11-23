@@ -207,19 +207,18 @@ WHERE email = 'tu_correo@ejemplo.com';
 
 ## Base de datos y CRUD
 
-El proyecto **SKYGAMES** utiliza la base de datos **`skygames_db`**, estructurada en dos tablas principales para gestionar el acceso y los ítems disponibles:
+El proyecto **SKYGAMES** utiliza la base de datos **`skygames_db`**, estructurada en dos tablas principales para gestionar el acceso y los ítems disponibles[cite: 3]:
 
-* **`usuarios`**: registra los datos de acceso mediante `nombre`, `password` y `rol` (`admin` o `cliente`).
-* **`catalogo`**: almacena cada elemento con su `nombre`, `precio` (nivel de precio) y `descripcion`.
+* **`usuarios`**: registra los datos de acceso mediante `nombre`, `password` y `rol` (`admin` o `cliente`)[cite: 3].
+* **`catalogo`**: almacena cada elemento con su `nombre`, `precio` (nivel de precio) y `descripcion`[cite: 3].
 
-Mediante el CRUD de la aplicación se gestionan los registros del catálogo y se valida el acceso según el rol asignado.
+Mediante el CRUD de la aplicación se gestionan los registros del catálogo y se valida el acceso según el rol asignado[cite: 3].
 
 ### Capturas de evidencia
 
-* **Listado del catálogo:** [listado.png](listado.png) — Vista general de los elementos cargados en el catálogo.
-* **Formulario CRUD:** [crudformulario.png](crudformulario.png) — Interfaz de alta y edición de registros.
-* **Operaciones CRUD:** [opraciones.png](opraciones.png) — Comprobación de las operaciones de consulta, creación, actualización y eliminación.
-
+* **Listado del catálogo:** [listado.png](capturas/listado.png) — Vista general de los elementos cargados en el catálogo.
+* **Formulario CRUD:** [crudformulario.png](capturas/crudformulario.png) — Interfaz de alta y edición de registros.
+* **Operaciones CRUD:** [opraciones.png](capturas/opraciones.png) — Comprobación de las operaciones de consulta, creación, actualización y eliminación.
 
 
 
