@@ -197,20 +197,34 @@ SET rol_id = (SELECT id FROM roles WHERE nombre = 'admin')
 WHERE email = 'tu_correo@ejemplo.com';
 ```
 
-### 8.2. TP6 – Diseño de la base de datos (carpeta `tp6/`)
+### 8.2.  – Diseño de la base de datos (carpeta `tp6/`)
 
 - `tp6/NORMALIZACION.md`: tabla sin normalizar, 1FN, 2FN, 3FN y listado de tablas con PK/FK.
 - `tp6/schema.sql`: script DDL (tablas `roles`, `usuarios`, `categorias`, `plataformas`, `productos`, `producto_plataforma`, `estados_consulta`, `consultas`), claves foráneas, campos de auditoría e índices.
 - `tp6/consultas.sql`: pruebas CRUD (INSERT, SELECT con WHERE/ORDER BY, INNER JOIN, UPDATE, DELETE).
 
-### 8.3. TP7 – CRUD con PDO (carpeta `admin/`, solo rol admin)
+### 8.3.  – CRUD con PDO (carpeta `admin/`, solo rol admin)
 
-- `config/conexion.php`: conexión PDO con `try/catch (PDOException)`.
-- `admin/index.php` (Read), `crear.php` (Create), `editar.php` (Update), `eliminar.php` (Delete) sobre la tabla `productos` y su relación N:M con `plataformas`.
-- Todas las consultas usan sentencias preparadas con parámetros nombrados; toda salida HTML pasa por `htmlspecialchars()` (función `e()`).
-- La baja se hace por `POST` con token CSRF.
+## Base de datos y CRUD
 
-### 8.4. TP5 – Formularios POST y GET (carpeta `clase5/`)
+El proyecto **SKYGAMES** utiliza la base de datos **`skygames_db`**, estructurada en dos tablas principales para gestionar el acceso y los ítems disponibles:
+
+* **`usuarios`**: registra los datos de acceso mediante `nombre`, `password` y `rol` (`admin` o `cliente`).
+* **`catalogo`**: almacena cada elemento con su `nombre`, `precio` (nivel de precio) y `descripcion`.
+
+Mediante el CRUD de la aplicación se gestionan los registros del catálogo y se valida el acceso según el rol asignado.
+
+### Capturas de evidencia
+
+* **Listado del catálogo:** [listado.png](listado.png) — Vista general de los elementos cargados en el catálogo.
+* **Formulario CRUD:** [crudformulario.png](crudformulario.png) — Interfaz de alta y edición de registros.
+* **Operaciones CRUD:** [opraciones.png](opraciones.png) — Comprobación de las operaciones de consulta, creación, actualización y eliminación.
+
+
+
+
+
+### 8.4.  – Formularios POST y GET (carpeta `clase5/`)
 
 - `clase5/contacto.php` (**POST**): consulta de productos; sanitiza con `trim()`/`filter_input()`, valida campos obligatorios y formato de email, muestra mensajes de éxito/error, conserva los datos cargados ante un error y guarda la consulta en la tabla `consultas`.
 - `clase5/buscar.php` (**GET**): búsqueda por título y filtro por categoría con consultas preparadas.
@@ -227,11 +241,3 @@ WHERE email = 'tu_correo@ejemplo.com';
 
 
 
-### 8.5.  – Registro, login y control de acceso
-
-- `registro.php`: valida entradas, verifica que el correo no exista y guarda la contraseña con `password_hash(..., PASSWORD_BCRYPT)`.
-- `login.php`: `password_verify()`, `session_regenerate_id(true)` y datos en `$_SESSION['usuario_id']`, `['usuario_nombre']` y `['rol']`.
-- `includes/auth_guard.php`: guardián de rutas; redirige a `login.php?error=acceso_denegado` si no hay sesión y restringe por rol.
-- Páginas protegidas: `dashboard.php` (cualquier usuario autenticado), `admin_panel.php` y `admin/*` (solo `admin`).
-- `logout.php`: vacía `$_SESSION`, elimina la cookie de sesión y ejecuta `session_destroy()`.
-- La cookie de sesión es `HttpOnly`, `SameSite=Lax` y se usa el modo estricto de sesiones.
