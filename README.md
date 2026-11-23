@@ -218,7 +218,7 @@ Mediante el CRUD de la aplicación se gestionan los registros del catálogo y se
 
 * **Listado del catálogo:** ![listado.png](capturas/listado.png) — Vista general de los elementos cargados en el catálogo.
 * **Formulario CRUD:** ![crudformulario.png](capturas/crudformulario.png) — Interfaz de alta y edición de registros.
-* **Operaciones CRUD:** ![opraciones.png](capturas/opraciones.png) — Comprobación de las operaciones de consulta, creación, actualización y eliminación.
+* **Operaciones CRUD:** ![opraciones.png](capturas/operaciones.png) — Comprobación de las operaciones de consulta, creación, actualización y eliminación.
 * ![conexion.png](capturas/conexion.png)
 
 
